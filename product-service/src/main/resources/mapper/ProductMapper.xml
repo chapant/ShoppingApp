@@ -1,0 +1,34 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.shoppingapp.productservice.mapper.ProductMapper">
+
+    <select id="findAll" resultType="com.example.shoppingapp.productservice.model.Product">
+        SELECT * FROM products;
+    </select>
+
+    <select id="findById" parameterType="int" resultType="com.example.shoppingapp.productservice.model.Product">
+        SELECT * FROM products WHERE product_id = #{id};
+    </select>
+
+    <select id="findProductsByCategoryId" parameterType="int" resultType="com.example.shoppingapp.productservice.model.Product">
+        SELECT * FROM products WHERE product_cat = #{categoryId};
+    </select>
+
+    <insert id="insert" parameterType="com.example.shoppingapp.productservice.model.Product" useGeneratedKeys="true" keyProperty="productId">
+        INSERT INTO products(product_cat, product_brand, product_title, product_price, product_desc, product_image, product_keywords)
+        VALUES (#{productCat}, #{productBrand}, #{productTitle}, #{productPrice}, #{productDesc}, #{productImage}, #{productKeywords});
+    </insert>
+
+    <update id="update" parameterType="com.example.shoppingapp.productservice.model.Product">
+        UPDATE products
+        SET product_cat=#{productCat}, product_brand=#{productBrand}, product_title=#{productTitle}, product_price=#{productPrice}, product_desc=#{productDesc}, product_image=#{productImage}, product_keywords=#{productKeywords}
+        WHERE product_id = #{productId};
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM products WHERE product_id = #{productId};
+    </delete>
+
+</mapper>
