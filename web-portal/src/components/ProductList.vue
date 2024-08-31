@@ -1,7 +1,11 @@
 <template>
-  <div class="container">
+  <div class="container mt-4">
     <div class="row">
-      <ProductItem v-for="product in products" :key="product.product_id" :product="product" />
+      <ProductItem
+          v-for="product in products"
+          :key="product.product_id"
+          :product="product"
+      />
     </div>
   </div>
 </template>
