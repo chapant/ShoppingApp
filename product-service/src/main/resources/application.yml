@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: product-service
+  web:
+    resources:
+      static-locations: classpath:/static/
   cloud:
     consul:
       host: localhost
