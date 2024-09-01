@@ -9,6 +9,7 @@ pipeline {
 
     stage('Build Product Service') {
       steps {
+        sh 'chmod +x product-service/mvnw'
         sh '''cd product-service
 ./mvnw clean package'''
       }
@@ -16,6 +17,7 @@ pipeline {
 
     stage('Build Gateway API') {
       steps {
+        sh 'chmod +x gateway-api/mvnw'
         sh '''cd gateway-api
 ./mvnw clean package
 '''
