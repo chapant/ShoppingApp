@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  consul:
+    image: consul:1.14.8
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    networks:
+      - shopping-network
+
+  product-service:
+    image: product-service:latest
+    ports:
+      - "10110:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+    networks:
+      - shopping-network
+    depends_on:
+      - consul
+
+  gateway-api:
+    image: gateway-api:latest
+    ports:
+      - "10180:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+    networks:
+      - shopping-network
+    depends_on:
+      - consul
+      - product-service
+
+networks:
+  shopping-network:
+    driver: bridge

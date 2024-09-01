@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-4">
+  <div class="container mt-3">
     <div class="row">
       <ProductItem
           v-for="product in products"

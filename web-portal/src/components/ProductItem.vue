@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4 col-sm-6 mb-4">
+  <div class="col-md-3 col-sm-6 mb-3">
     <div class="card h-100">
       <img :src="`/api/images/product/${product.product_image}`" class="card-img-top" alt="...">
       <div class="card-body">
