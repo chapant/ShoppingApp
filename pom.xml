@@ -42,11 +42,6 @@
 		</dependency>
 	</dependencies>
 
-	<modules>
-		<module>gateway-api</module>
-		<module>product-service</module>
-	</modules>
-
 	<build>
 		<plugins>
 			<plugin>
