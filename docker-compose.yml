@@ -1,5 +1,9 @@
 version: '3.8'
 
+networks:
+  shopping-network:
+    driver: bridge
+
 services:
   consul:
     image: consul:1.14.8
@@ -38,6 +42,13 @@ services:
       - consul
       - product-service
 
-networks:
-  shopping-network:
-    driver: bridge
+  web-portal:  # New service for the Vue.js application
+    image: web-portal:1.0.0
+    ports:
+      - "80:80"  # Expose the Nginx server on port 80
+    networks:
+      - shopping-network
+    depends_on:
+      - consul
+      - gateway-api
+      - product-service
