@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:10110', // Your backend API
+        target: process.env.VITE_API_URL || 'http://localhost:10110', // Use environment variable or fallback to localhost
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
