@@ -10,7 +10,7 @@ WORKDIR /ShoppingApp
 COPY target/gateway-api-0.0.1-SNAPSHOT.jar /ShoppingApp/gateway-api.jar
 
 # Expose the application port
-EXPOSE 8080
+EXPOSE 10110
 
 # Run the JAR file
 ENTRYPOINT ["java", "-jar", "/ShoppingApp/gateway-api.jar"]

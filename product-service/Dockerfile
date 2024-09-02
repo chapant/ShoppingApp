@@ -10,7 +10,7 @@ WORKDIR /ShoppingApp
 COPY target/product-service-0.0.1-SNAPSHOT.jar /ShoppingApp/product-service.jar
 
 # Expose the application port
-EXPOSE 8080
+EXPOSE 10120
 
 # Run the JAR file
 ENTRYPOINT ["java", "-jar", "/ShoppingApp/product-service.jar"]

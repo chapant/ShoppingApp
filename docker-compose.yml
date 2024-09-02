@@ -14,7 +14,7 @@ services:
   product-service:
     image: product-service:1.0.0
     ports:
-      - "10110:8080"
+      - "10120:10120"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - SPRING_CLOUD_CONSUL_HOST=consul
@@ -27,7 +27,7 @@ services:
   gateway-api:
     image: gateway-api:1.0.0
     ports:
-      - "10180:8080"
+      - "10110:10110"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - SPRING_CLOUD_CONSUL_HOST=consul
