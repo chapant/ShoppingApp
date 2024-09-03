@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: gateway-api
+  webflux:
+    cors:
+      allowed-origins: "*"  # Replace "*" with specific domains if needed
+      allowed-methods: "GET, POST, PUT, DELETE, OPTIONS"
+      allowed-headers: "*"
+      allow-credentials: true
   cloud:
     consul:
       host: localhost
